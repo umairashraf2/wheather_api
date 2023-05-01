@@ -1,0 +1,1 @@
+gunicorn "wheather_api:app"

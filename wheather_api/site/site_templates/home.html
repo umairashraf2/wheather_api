@@ -1,0 +1,42 @@
+{% extends 'base.html' %} {% block home_active %}active{% endblock %} {% block
+content %}
+
+<div class="container mt-5">
+	<h1 class="text-center mb-4">Weather Temprature</h1>
+	<form id="weatherForm" class="row justify-content-center mb-3">
+		<div class="col-md-6">
+			<div class="input-group">
+				<input
+					type="text"
+					id="cityOrZip"
+					value="Dubai"
+					class="form-control"
+					placeholder="Enter City Name or Zip Code"
+					required
+				/>
+				<button type="submit" id="getWeather" class="btn btn-primary">
+					Get Weather
+				</button>
+			</div>
+		</div>
+	</form>
+	<div class="d-flex justify-content-center my-5">
+		<div class="card" style="width: 20rem">
+			<div class="text-center">
+				<div
+					id="spinner"
+					class="spinner-border text-primary d-none"
+					role="status"
+				>
+					<span class="visually-hidden">Loading...</span>
+				</div>
+			</div>
+			<div id="cityImage"></div>
+			<div id="weatherCity" class="card-body"></div>
+			<ul id="weatherData" class="list-group list-group-flush"></ul>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+<!-- End content block of the page -->

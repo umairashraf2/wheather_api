@@ -1,0 +1,30 @@
+{% extends 'base.html' %} {% block content %}
+<!-- Begin content block of the page -->
+
+<!-- Login -->
+<div class="container">
+	<h1 class="text-center my-4">Login</h1>
+	<form action="{{ url_for('auth.login') }}" method="post">
+		{{ form.csrf_token }}
+		<div class="form-group my-3 has-validation">
+			{{ form.email.label }}<br />
+			{{ form.email(class="form-control" + (" is-invalid" if
+			form.email.errors else "")) }} {% if form.email.errors %}
+			<div class="invalid-feedback">
+				{% for error in form.email.errors %} {{ error }} {% endfor %}
+			</div>
+			{% endif %}
+		</div>
+		<div class="form-group my-3 has-validation">
+			{{ form.password.label }}<br />
+			{{ form.password(class="form-control" + (" is-invalid" if
+			form.password.errors else "")) }} {% if form.password.errors %}
+			<div class="invalid-feedback">
+				{% for error in form.password.errors %} {{ error }} {% endfor %}
+			</div>
+			{% endif %}
+		</div>
+		{{ form.submit(class="btn btn-primary") }}
+	</form>
+</div>
+{% endblock %}
